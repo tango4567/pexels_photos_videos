@@ -23,7 +23,7 @@ TODO: Use of this package is very easy. Inculde in your project pass your auth k
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
+TODO: Example is not added yet. Soon it will avaiable
 to `/example` folder.
 
 ```dart
