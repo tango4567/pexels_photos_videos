@@ -11,16 +11,15 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: This package will help you to get data from [Pexels](hhtps://pexels.com). 
+TODO: This package will help you to get data from [Pexels](https://pexels.com). 
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+TODO: This package is able to fetch full details from [Pexels](https://pexels.com).
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+TODO: Use of this package is very easy. Inculde in your project pass your auth key and get the result.
 
 ## Usage
 
@@ -33,6 +32,4 @@ const like = 'sample';
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+TODO: I will update this pacakge very frequently. So I request you to visit our repo time to time 👉 [Pexels_Photos_Videos](https://github.com/tango4567/pexels_photos_videos/)
