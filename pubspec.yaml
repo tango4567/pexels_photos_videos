@@ -1,6 +1,6 @@
 name: pexels_photos_videos
 description: This package well help you to get data from pexels.com
-version: 0.0.1.0
+version: 0.0.1
 homepage:
 
 environment:
