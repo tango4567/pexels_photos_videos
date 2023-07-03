@@ -32,4 +32,4 @@ const like = 'sample';
 
 ## Additional information
 
-TODO: I will update this pacakge very frequently. So I request you to visit our repo time to time 👉 [Pexels_Photos_Videos](https://github.com/tango4567/pexels_photos_videos/)
+I will update this pacakge very frequently. So I request you to visit our repo time to time 👉 [Pexels_Photos_Videos](https://github.com/tango4567/pexels_photos_videos/)
