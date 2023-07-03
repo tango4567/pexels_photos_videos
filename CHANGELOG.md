@@ -1,6 +1,9 @@
+## 0.0.3
+
+* TODO: Renamed function.
+
 ## 0.0.2
 
-* TODO: In this version we added image but not optimized. We are working on it and resolving asap.
 * TODO: In this version we added image but not optimized. We are working on it and resolving asap.
 
 ## 0.0.1
