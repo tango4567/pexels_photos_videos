@@ -1,3 +1,5 @@
+# Logs
+
 ## 0.0.4
 
 * Cleaning up files and folder.
