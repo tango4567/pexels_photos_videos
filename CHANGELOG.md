@@ -1,5 +1,9 @@
 # Logs
 
+## 0.0.5
+
+* Error removed.
+
 ## 0.0.4
 
 * Cleaning up files and folder.
