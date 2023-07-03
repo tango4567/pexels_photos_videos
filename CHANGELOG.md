@@ -1,11 +1,15 @@
+## 0.0.4
+
+* Cleaning up files and folder.
+
 ## 0.0.3
 
-* TODO: Renamed function.
+* Renamed function.
 
 ## 0.0.2
 
-* TODO: In this version we added image but not optimized. We are working on it and resolving asap.
+* In this version we added image but not optimized. We are working on it and resolving asap.
 
 ## 0.0.1
 
-* TODO: this is template version with dummy data.
+* This is template version with dummy data.
