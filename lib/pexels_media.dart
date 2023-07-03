@@ -2,26 +2,32 @@ library pexels_photos_videos;
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:pexels_photos_videos/const_strings.dart';
 
 import 'pexels_result.dart';
 
 class PexelsMedia {
+
+  static const String authorization = 'Authorization';
+  static const String contentType = 'Content-Type';
+  static const String contentTypeDefinition = 'application/json; charset=UTF-8';
+
+  static const String pexelsApiBaseUrl = 'api.pexels.com';
+  static const String pexelsPhoto = 'v1/photos';
+  static const String pexelsVideos = 'v1/videos';
+
+
   Future<PexelsResult> getPexelsPhotos(
       String authorizationKey, String imageId) async {
     final url = Uri.https(
-        ConstStrings.pexelsApiBaseUrl, '${ConstStrings.pexelsPhoto}/$imageId');
+        pexelsApiBaseUrl, '$pexelsPhoto/$imageId');
 
-    final response = await http.post(url,
+    final response = await http.get(url,
         headers: {
-          ConstStrings.contentType: ConstStrings.formUrlencoded,
-          ConstStrings.authorization: authorizationKey
-        },
-        encoding: Encoding.getByName(ConstStrings.encodingTypeUtf8));
+          contentType: contentTypeDefinition,
+          authorization: authorizationKey
+        });
 
-    // If the request didn't succeed, throw an exception
     if (response.statusCode != 200) {
-      // print("Error");
       throw Exception('Exception ${response.statusCode}');
     }
 
