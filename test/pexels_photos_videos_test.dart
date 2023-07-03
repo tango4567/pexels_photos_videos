@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:pexels_photos_videos/pexels_photos_videos.dart';
+import 'package:pexels_photos_videos/pexels_media.dart';
 
 void main() {
   test('pass your own authorization key and image id to run this test', () {
