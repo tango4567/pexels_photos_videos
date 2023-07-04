@@ -24,6 +24,7 @@ class Src {
   /// [tiny] It can be used in thumbnails
   String? tiny;
 
+  ///Named Constructors[Src]
   Src(
       {required this.original,
       required this.large2x,
@@ -34,7 +35,7 @@ class Src {
       required this.landscape,
       required this.tiny});
 
-  //Mapping Json object
+  /// [Src.fromJson]Mapping Json object
   factory Src.fromJson(Map<String, dynamic> json) {
     return Src(
         original: json['original'] as String?,

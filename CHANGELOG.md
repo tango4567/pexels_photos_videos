@@ -1,5 +1,9 @@
 # Logs
 
+## 0.0.10
+
+* Documentation updated.
+
 ## 0.0.9
 
 * Stable version without and issue.
