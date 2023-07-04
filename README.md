@@ -1,3 +1,9 @@
+# Major Update
+1. PexelsResult => Photo
+2. Src => PhotoSrc
+
+We changed file name and class name for better read ablity.
+
 This package will help you to get data from [Pexels](https://pexels.com). 
 
 ## Features
