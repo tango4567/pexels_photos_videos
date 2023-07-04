@@ -32,5 +32,3 @@ build/
 
 .example/analysis_options.yaml
 .example/README.md
-.metadata
-analysis_options.yaml
