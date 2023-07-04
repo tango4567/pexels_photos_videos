@@ -1,5 +1,9 @@
 # Logs
 
+## 0.0.9
+
+* Stable version without and issue.
+
 ## 0.0.8
 
 * Removed unused variable and updated example.
