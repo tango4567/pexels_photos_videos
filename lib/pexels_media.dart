@@ -15,7 +15,6 @@ class PexelsMedia {
 
   static const String _pexelsApiBaseUrl = 'api.pexels.com';
   static const String _pexelsPhoto = 'v1/photos';
-  static const String _pexelsVideos = 'v1/videos';
 
   ///[getPexelsPhotos] required to parameters
   ///1. Pexels => [authorizationKey]

@@ -1,12 +1,27 @@
 ///[Src] hold different type of image sizes
 class Src {
+  /// [original] full sized image
   String? original;
+
+  /// [large2x] Dpr = 2
   String? large2x;
+
+  /// [large] size of the file
   String? large;
+
+  /// [medium] Based on display you can use
   String? medium;
+
+  /// [small] It can be use in display
   String? small;
+
+  /// [portrait] best for portrait view
   String? portrait;
+
+  /// [landscape] best for landscape view
   String? landscape;
+
+  /// [tiny] It can be used in thumbnails
   String? tiny;
 
   Src(
@@ -19,6 +34,7 @@ class Src {
       required this.landscape,
       required this.tiny});
 
+  //Mapping Json object
   factory Src.fromJson(Map<String, dynamic> json) {
     return Src(
         original: json['original'] as String?,
