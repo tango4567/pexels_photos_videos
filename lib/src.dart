@@ -37,6 +37,7 @@ class Src {
 
   /// [Src.fromJson]Mapping Json object
   factory Src.fromJson(Map<String, dynamic> json) {
+    ///[Src] Object mapping
     return Src(
         original: json['original'] as String?,
         large2x: json['large2x'] as String?,

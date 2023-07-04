@@ -51,6 +51,7 @@ class PexelsResult {
 
   /// [PexelsResult.fromJson] Mapping data to [PexelsResult]
   factory PexelsResult.fromJson(Map<String, dynamic> json) {
+    /// [PexelsResult] Mapping object
     return PexelsResult(
         id: json['id'] as int?,
         width: json['width'] as int?,

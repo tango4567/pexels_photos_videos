@@ -26,7 +26,6 @@ class PexelsMedia {
   ///[getPexelsPhotos] required to parameters
   ///1. Pexels => [authorizationKey]
   ///2. Image ID => [imageId]
-  ///
   Future<PexelsResult> getPexelsPhotos(
       String authorizationKey, String imageId) async {
     ///Creating Uri
@@ -40,6 +39,7 @@ class PexelsMedia {
 
     /// If [response.statusCode != 200] then it will throw exception
     if (response.statusCode != 200) {
+      /// [Exception] Return exception and response code
       throw Exception('Exception ${response.statusCode}');
     }
 
