@@ -1,5 +1,9 @@
 # Logs
 
+## 0.0.6
+
+* Documentation updated.
+
 ## 0.0.5
 
 * Error removed.

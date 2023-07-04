@@ -1,3 +1,4 @@
+///[Src] hold different type of image sizes
 class Src {
   String? original;
   String? large2x;

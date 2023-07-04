@@ -1,5 +1,6 @@
 import 'src.dart';
 
+///[PexelsResult] is response from Pexels.com
 class PexelsResult {
   bool liked;
 
