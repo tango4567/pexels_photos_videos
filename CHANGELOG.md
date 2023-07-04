@@ -1,5 +1,14 @@
 # Logs
 
+## 0.0.12
+
+* Major update
+   1. PexelsResult => Photo (file name pexels_result.dart => photo.dart)
+   2. Src => PhotoSrc (file name src.dart => photo_src.dart)
+   3. getPexelsPhotos => getPhoto (pexels_media.dart)
+
+After upgrade you will find multiple error then you need to refactor your code.
+
 ## 0.0.11
 
 * Documentation updated. No major update

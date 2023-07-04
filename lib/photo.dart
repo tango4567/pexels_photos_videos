@@ -1,7 +1,7 @@
-import 'src.dart';
+import 'photo_src.dart';
 
-///[PexelsResult] is response from Pexels.com
-class PexelsResult {
+///[Photo] is response from Pexels.com
+class Photo {
   ///[liked] photo like status true or false
   bool liked;
 
@@ -30,13 +30,13 @@ class PexelsResult {
   String? avgColor;
 
   /// [src] Src is collection of url with different size for the same photo
-  Src? src;
+  PhotoSrc? src;
 
   ///[alt] Alternate name for the photo.
   String? alt;
 
-  ///Named Constructors[PexelsResult]
-  PexelsResult(
+  ///Named Constructors[Photo]
+  Photo(
       {required this.id,
       required this.width,
       required this.height,
@@ -49,10 +49,10 @@ class PexelsResult {
       required this.liked,
       required this.alt});
 
-  /// [PexelsResult.fromJson] Mapping data to [PexelsResult]
-  factory PexelsResult.fromJson(Map<String, dynamic> json) {
+  /// [PexelsResult.fromJson] Mapping data to [Photo]
+  factory Photo.fromJson(Map<String, dynamic> json) {
     /// [PexelsResult] Mapping object
-    return PexelsResult(
+    return Photo(
         id: json['id'] as int?,
         width: json['width'] as int?,
         height: json['height'] as int?,
@@ -61,7 +61,7 @@ class PexelsResult {
         photographer: json['photographer'] as String?,
         photographerUrl: json['photographerUrl'] as String?,
         avgColor: json['avgColor'] as String?,
-        src: Src.fromJson(json['src']),
+        src: PhotoSrc.fromJson(json['src']),
         liked: json['liked'] as bool,
         alt: json['alt'] as String?);
   }
