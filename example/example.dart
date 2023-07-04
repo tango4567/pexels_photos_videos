@@ -4,9 +4,9 @@ import 'package:pexels_photos_videos/photo.dart';
 
 void main() async {
   /// Call [PexelsMedia] and get [PexelsResult]
-  Photo result = await PexelsMedia()
-      .getPexelsPhotos('place your auth key here', 'image Id');
+  Photo photo = await PexelsMedia()
+      .getPhoto('place your auth key here', 'image Id');
   if (kDebugMode) {
-    print(result.photographer);
+    print(photo.photographer);
   }
 }

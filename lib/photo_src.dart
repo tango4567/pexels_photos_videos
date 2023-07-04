@@ -1,5 +1,5 @@
-///[Src] hold different type of image sizes
-class Src {
+///[PhotoSrc] hold different type of image sizes
+class PhotoSrc {
   /// [original] full sized image
   String? original;
 
@@ -24,8 +24,8 @@ class Src {
   /// [tiny] It can be used in thumbnails
   String? tiny;
 
-  ///Named Constructors[Src]
-  Src(
+  ///Named Constructors[PhotoSrc]
+  PhotoSrc(
       {required this.original,
       required this.large2x,
       required this.large,
@@ -36,9 +36,9 @@ class Src {
       required this.tiny});
 
   /// [Src.fromJson]Mapping Json object
-  factory Src.fromJson(Map<String, dynamic> json) {
+  factory PhotoSrc.fromJson(Map<String, dynamic> json) {
     ///[Src] Object mapping
-    return Src(
+    return PhotoSrc(
         original: json['original'] as String?,
         large2x: json['large2x'] as String?,
         large: json['large'] as String?,

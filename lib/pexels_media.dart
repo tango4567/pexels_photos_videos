@@ -23,10 +23,10 @@ class PexelsMedia {
   ///[_pexelsPhoto] Pexels Api sub folder to get photos
   static const String _pexelsPhoto = 'v1/photos';
 
-  ///[getPexelsPhotos] required to parameters
+  ///[getPhoto] required to parameters
   ///1. Pexels => [authorizationKey]
   ///2. Image ID => [imageId]
-  Future<Photo> getPexelsPhotos(
+  Future<Photo> getPhoto(
       String authorizationKey, String imageId) async {
     ///Creating Uri
     final url = Uri.https(_pexelsApiBaseUrl, '$_pexelsPhoto/$imageId');

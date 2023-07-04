@@ -30,7 +30,7 @@ class Photo {
   String? avgColor;
 
   /// [src] Src is collection of url with different size for the same photo
-  Src? src;
+  PhotoSrc? src;
 
   ///[alt] Alternate name for the photo.
   String? alt;
@@ -61,7 +61,7 @@ class Photo {
         photographer: json['photographer'] as String?,
         photographerUrl: json['photographerUrl'] as String?,
         avgColor: json['avgColor'] as String?,
-        src: Src.fromJson(json['src']),
+        src: PhotoSrc.fromJson(json['src']),
         liked: json['liked'] as bool,
         alt: json['alt'] as String?);
   }
