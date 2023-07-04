@@ -1,7 +1,7 @@
-import 'src.dart';
+import 'photo_src.dart';
 
-///[PexelsResult] is response from Pexels.com
-class PexelsResult {
+///[Photo] is response from Pexels.com
+class Photo {
   ///[liked] photo like status true or false
   bool liked;
 
@@ -35,8 +35,8 @@ class PexelsResult {
   ///[alt] Alternate name for the photo.
   String? alt;
 
-  ///Named Constructors[PexelsResult]
-  PexelsResult(
+  ///Named Constructors[Photo]
+  Photo(
       {required this.id,
       required this.width,
       required this.height,
@@ -49,10 +49,10 @@ class PexelsResult {
       required this.liked,
       required this.alt});
 
-  /// [PexelsResult.fromJson] Mapping data to [PexelsResult]
-  factory PexelsResult.fromJson(Map<String, dynamic> json) {
+  /// [PexelsResult.fromJson] Mapping data to [Photo]
+  factory Photo.fromJson(Map<String, dynamic> json) {
     /// [PexelsResult] Mapping object
-    return PexelsResult(
+    return Photo(
         id: json['id'] as int?,
         width: json['width'] as int?,
         height: json['height'] as int?,

@@ -3,7 +3,7 @@ library pexels_photos_videos;
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import 'pexels_result.dart';
+import 'photo.dart';
 
 ///[PexelsMedia] is having multiple methods
 class PexelsMedia {
@@ -26,7 +26,7 @@ class PexelsMedia {
   ///[getPexelsPhotos] required to parameters
   ///1. Pexels => [authorizationKey]
   ///2. Image ID => [imageId]
-  Future<PexelsResult> getPexelsPhotos(
+  Future<Photo> getPexelsPhotos(
       String authorizationKey, String imageId) async {
     ///Creating Uri
     final url = Uri.https(_pexelsApiBaseUrl, '$_pexelsPhoto/$imageId');
@@ -47,6 +47,6 @@ class PexelsMedia {
     final packageJson = json.decode(response.body) as Map<String, dynamic>;
 
     /// Return response in form of [PexelsResult]
-    return PexelsResult.fromJson(packageJson);
+    return Photo.fromJson(packageJson);
   }
 }
