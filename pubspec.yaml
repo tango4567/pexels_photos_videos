@@ -1,6 +1,6 @@
 name: pexels_photos_videos
-description: This package will help you to get data from [Pexels](https://pexels.com). It's easy to use and get all details related to media which is requested. Currently our package support for single image. We are constantly working on it step by step and will try to provide all the feature asap.
-version: 0.0.5
+description: This package will help you to get data from pexels.com. It's easy to use and get all details related to media which is requested.
+version: 0.0.6
 
 # Add the homepage field
 homepage: https://tarunmahajan.com
