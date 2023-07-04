@@ -1,8 +1,12 @@
 # Logs
 
+## 0.0.11
+
+* Documentation updated. No major update
+
 ## 0.0.10
 
-* Documentation updated.
+* Documentation updated. No major update.
 
 ## 0.0.9
 
