@@ -1,5 +1,9 @@
 # Logs
 
+## 0.0.7
+
+* Reverted Gitignore, Metadata and Analysis Options files.
+
 ## 0.0.6
 
 * Documentation updated.
