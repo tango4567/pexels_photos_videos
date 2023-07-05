@@ -1,41 +1,42 @@
 import 'photo_src.dart';
 
-///[Photo] is response from Pexels.com
+/// The [Photo] resource is a JSON formatted version of a Pexels photo.
+/// The [Photo] API endpoints respond with the photo data formatted in this shape.
 class Photo {
-  ///[liked] photo like status true or false
+  ///Photo like status true or false
   bool liked;
 
-  ///[id] photo id
+  /// The id of the photographer.
   int? id;
 
-  ///[width] photo width
+  /// The real width of the photo in pixels.
   int? width;
 
-  ///[height] photo height
+  /// The real height of the photo in pixels.
   int? height;
 
-  /// [photographerId] photographar Id
+  /// The id of the photographer.
   int? photographerId;
 
-  ///[url] photo url
+  /// The Pexels URL where the photo is located.
   String? url;
 
-  /// [photographer] photographer name
+  /// The name of the photographer who took the photo.
   String? photographer;
 
-  /// [photographerUrl] photographer url
+  /// The URL of the photographer's Pexels profile.
   String? photographerUrl;
 
-  /// [avgColor] photo average color
+  /// The average color of the photo. Useful for a placeholder while the image loads.
   String? avgColor;
 
-  /// [src] Src is collection of url with different size for the same photo
+  /// An assortment of different image sizes that can be used to display this [PhotoSrc].
   PhotoSrc? src;
 
-  ///[alt] Alternate name for the photo.
+  /// Text description of the photo for use in the [alt] attribute.
   String? alt;
 
-  ///Named Constructors[Photo]
+  /// Named Constructors[Photo] with require params
   Photo(
       {required this.id,
       required this.width,

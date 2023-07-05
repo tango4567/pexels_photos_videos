@@ -1,30 +1,31 @@
-///[PhotoSrc] hold different type of image sizes
+/// [PhotoSrc] hold different type of image sizes
 class PhotoSrc {
-  /// [original] full sized image
+  /// The image without any size changes.
+  /// It will be the same as the [width] and [height] attributes.
   String? original;
 
-  /// [large2x] Dpr = 2
+  /// The image resized W 940px X H 650px DPR 2
   String? large2x;
 
-  /// [large] size of the file
+  /// The image resized to W 940px X H 650px DPR 1.
   String? large;
 
-  /// [medium] Based on display you can use
+  /// The image scaled proportionally so that it's new height is 350px.
   String? medium;
 
-  /// [small] It can be use in display
+  /// The image scaled proportionally so that it's new height is 130px.
   String? small;
 
-  /// [portrait] best for portrait view
+  /// The image cropped to W 800px X H 1200px.
   String? portrait;
 
-  /// [landscape] best for landscape view
+  /// The image cropped to W 1200px X H 627px.
   String? landscape;
 
-  /// [tiny] It can be used in thumbnails
+  /// The image cropped to W 280px X H 200px.
   String? tiny;
 
-  ///Named Constructors[PhotoSrc]
+  /// Named Constructors[PhotoSrc] with required params
   PhotoSrc(
       {required this.original,
       required this.large2x,
