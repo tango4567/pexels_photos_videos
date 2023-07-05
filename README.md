@@ -1,3 +1,5 @@
+[![pub package](https://img.shields.io/pub/v/pexels_photos_videos.svg)](https://pub.dev/packages/pexels_photos_videos)
+
 # Major Update
 1. PexelsResult => Photo
 2. Src => PhotoSrc
@@ -16,14 +18,15 @@ Use of this package is very easy. Inculde in your project pass your auth key and
 
 ## Usage
 
-Example is added. Soon it will avaiable
-to `/example` folder.
+Example is added. It will to `/example` folder.
 
 ```dart
- PexelsResult result = await PexelsMedia()
-      .getPexelsPhotos('place your auth key here', 'image Id');
+  PexelsMedia pexelsMedia =
+      await PexelsMedia(authorizationKey: 'place your auth key here');
+  Photo photo = await pexelsMedia.getPhoto('image Id');
+  Video video = await pexelsMedia.getVideo('video Id');
 ```
 
 ## Additional information
 
-I will update this pacakge very frequently. So I request you to visit our repo time to time 👉 [Pexels_Photos_Videos](https://github.com/tango4567/pexels_photos_videos/)
+I will update this pacakge very frequently. So I request you to visit our repo time to time 👉 current Version [pexels_photos_videos: ^0.0.13](https://pub.dev/packages/pexels_photos_videos)
