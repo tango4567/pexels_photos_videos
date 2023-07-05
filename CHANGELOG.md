@@ -4,7 +4,7 @@
 
 * Major update
    1. Added get video details
-   2. Change in PexelsMedia class now no need pass Authorization again and and again.
+   2. Change in PexelsMedia class now no need pass authorization key again and and again.
    3. Documentation updated for photo and video. For more visit [Documentation](https://pub.dev/documentation/pexels_photos_videos/latest/)
 
 ## 0.0.12
