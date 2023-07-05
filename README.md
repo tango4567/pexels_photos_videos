@@ -29,4 +29,4 @@ Example is added. It will to `/example` folder.
 
 ## Additional information
 
-I will update this pacakge very frequently. So I request you to visit our repo time to time 👉 current Version [pexels_photos_videos: ^0.0.13](https://pub.dev/packages/pexels_photos_videos)
+I will update this pacakge very frequently. So I request you to visit our repo time to time.
