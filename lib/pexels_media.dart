@@ -2,32 +2,40 @@ library pexels_photos_videos;
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:pexels_photos_videos/video.dart';
 
 import 'photo.dart';
 
-///[PexelsMedia] is having multiple methods
+/// [PexelsMedia] is having multiple methods
 class PexelsMedia {
-  ///[_authorization] Authorization
+  /// [_authorization] Authorization
   static const String _authorization = 'Authorization';
 
-  ///[_contentType] Content Type
+  /// [_contentType] Content Type
   static const String _contentType = 'Content-Type';
 
-  ///[_contentTypeDefinition] Content type Definition
+  /// [_contentTypeDefinition] Content type Definition
   static const String _contentTypeDefinition =
       'application/json; charset=UTF-8';
 
-  ///[_pexelsApiBaseUrl] Pexels Api base url
+  /// [_pexelsApiBaseUrl] Pexels Api base url
   static const String _pexelsApiBaseUrl = 'api.pexels.com';
 
-  ///[_pexelsPhoto] Pexels Api sub folder to get photos
+  /// [_pexelsPhoto] Pexels Api sub folder to get photos
   static const String _pexelsPhoto = 'v1/photos';
 
-  ///[getPhoto] required to parameters
-  ///1. Pexels => [authorizationKey]
-  ///2. Image ID => [imageId]
-  Future<Photo> getPhoto(
-      String authorizationKey, String imageId) async {
+  /// [_pexelsPhoto] Pexels Api sub folder to get photos
+  static const String _pexelsVideo = 'videos/videos';
+
+  /// [authorizationKey] We are going to use this multiple place
+  String authorizationKey;
+
+  /// [PexelsMedia] Named Constructor with required param[authorizationKey]
+  PexelsMedia({required this.authorizationKey});
+
+  /// [getPhoto] required to parameters
+  /// Image ID => [imageId]
+  Future<Photo> getPhoto(String imageId) async {
     ///Creating Uri
     final url = Uri.https(_pexelsApiBaseUrl, '$_pexelsPhoto/$imageId');
 
@@ -48,5 +56,30 @@ class PexelsMedia {
 
     /// Return response in form of [PexelsResult]
     return Photo.fromJson(packageJson);
+  }
+
+  /// [getVideo] required to parameters
+  /// Video ID => [imageId]
+  Future<Video> getVideo(String videoId) async {
+    ///Creating Uri
+    final url = Uri.https(_pexelsApiBaseUrl, '$_pexelsVideo/$videoId');
+
+    /// Get [response] from Pexels.com
+    final response = await http.get(url, headers: {
+      _contentType: _contentTypeDefinition,
+      _authorization: authorizationKey
+    });
+
+    /// If [response.statusCode != 200] then it will throw exception
+    if (response.statusCode != 200) {
+      /// [Exception] Return exception and response code
+      throw Exception('Exception ${response.statusCode}');
+    }
+
+    /// Here we are converting [response] data to [Video]
+    final packageJson = json.decode(response.body) as Map<String, dynamic>;
+
+    /// Return response in form of [Video]
+    return Video.fromJson(packageJson);
   }
 }
