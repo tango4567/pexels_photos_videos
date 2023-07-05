@@ -1,5 +1,12 @@
 # Logs
 
+## 0.0.13
+
+* Major update
+   1. Added get video details
+   2. Change in PexelsMedia class now no need pass Authorization again and and again.
+   3. Documentation updated for photo and video. For more visit [lDocumentation](https://pub.dev/documentation/pexels_photos_videos/latest/)
+
 ## 0.0.12
 
 * Major update
