@@ -7,5 +7,6 @@ void main() {
     final pexelsMedia = PexelsMedia(authorizationKey: 'authorizationKey');
     expect(pexelsMedia.getPhoto('imageId'), 'Invalid/Valid Data');
     expect(pexelsMedia.getVideo('videoId'), 'Invalid/Valid Data');
+    expect(pexelsMedia.getCuratedPhotos(1, 1), 'Invalid/Valid');
   });
 }

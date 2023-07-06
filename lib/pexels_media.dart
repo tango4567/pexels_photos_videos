@@ -2,6 +2,7 @@ library pexels_photos_videos;
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:pexels_photos_videos/curated.dart';
 import 'package:pexels_photos_videos/video.dart';
 
 import 'photo.dart';
@@ -24,6 +25,9 @@ class PexelsMedia {
   /// [_pexelsPhoto] Pexels Api sub folder to get photos
   static const String _pexelsPhoto = 'v1/photos';
 
+  ///
+  static const String _pexelsCuratedPhoto = '/v1/curated';
+
   /// [_pexelsPhoto] Pexels Api sub folder to get photos
   static const String _pexelsVideo = 'videos/videos';
 
@@ -37,10 +41,10 @@ class PexelsMedia {
   /// Image ID => [imageId]
   Future<Photo> getPhoto(String imageId) async {
     ///Creating Uri
-    final url = Uri.https(_pexelsApiBaseUrl, '$_pexelsPhoto/$imageId');
+    final uri = Uri.https(_pexelsApiBaseUrl, '$_pexelsPhoto/$imageId');
 
     /// Get response from Pexels.com
-    final response = await http.get(url, headers: {
+    final response = await http.get(uri, headers: {
       _contentType: _contentTypeDefinition,
       _authorization: authorizationKey
     });
@@ -62,10 +66,10 @@ class PexelsMedia {
   /// Video ID => [imageId]
   Future<Video> getVideo(String videoId) async {
     ///Creating Uri
-    final url = Uri.https(_pexelsApiBaseUrl, '$_pexelsVideo/$videoId');
+    final uri = Uri.https(_pexelsApiBaseUrl, '$_pexelsVideo/$videoId');
 
     /// Get [response] from Pexels.com
-    final response = await http.get(url, headers: {
+    final response = await http.get(uri, headers: {
       _contentType: _contentTypeDefinition,
       _authorization: authorizationKey
     });
@@ -81,5 +85,40 @@ class PexelsMedia {
 
     /// Return response in form of [Video]
     return Video.fromJson(packageJson);
+  }
+
+  /// [getCuratedPhotos] required to parameters
+  /// page => [page]
+  /// perPage = [perPage]
+  Future<Curated> getCuratedPhotos(int page, int perPage) async {
+    Map<String, dynamic> queryParameters = {
+      'page': '$page',
+      'per_page': '$perPage',
+    };
+
+    ///Creating Uri
+    final uri =
+        Uri.https(_pexelsApiBaseUrl, _pexelsCuratedPhoto, queryParameters);
+
+    /// Get [response] from Pexels.com
+    final response = await http.get(
+      uri,
+      headers: {
+        _contentType: _contentTypeDefinition,
+        _authorization: authorizationKey
+      },
+    );
+
+    /// If [response.statusCode != 200] then it will throw exception
+    if (response.statusCode != 200) {
+      /// [Exception] Return exception and response code
+      throw Exception('Exception ${response.statusCode}');
+    }
+
+    /// Here we are converting [response] data to [Video]
+    final packageJson = json.decode(response.body) as Map<String, dynamic>;
+
+    /// Return response in form of [Video]
+    return Curated.fromJson(packageJson);
   }
 }
