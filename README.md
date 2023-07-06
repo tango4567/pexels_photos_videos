@@ -1,10 +1,8 @@
 [![pub package](https://img.shields.io/pub/v/pexels_photos_videos.svg)](https://pub.dev/packages/pexels_photos_videos)
 
-# Major Update
-1. PexelsResult => Photo
-2. Src => PhotoSrc
+## Important information
 
-We changed file name and class name for better read ablity.
+This package is under development.
 
 This package will help you to get data from [Pexels](https://pexels.com). 
 
@@ -25,8 +23,5 @@ Example is added. It will to `/example` folder.
       await PexelsMedia(authorizationKey: 'place your auth key here');
   Photo photo = await pexelsMedia.getPhoto('image Id');
   Video video = await pexelsMedia.getVideo('video Id');
+  Curated curated = await pexelsMedia.getCuratedPhotos(1,1);
 ```
-
-## Additional information
-
-I will update this pacakge very frequently. So I request you to visit our repo time to time.
