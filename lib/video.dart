@@ -86,11 +86,13 @@ class Video {
 
   /// [_videoFileList] Converting dynamic list to [VideoFiles] list
   static List<VideoFiles> _videoFileList(List<dynamic>? vF) {
+    /// Return [VideoFiles] in List format
     return vF!.map((videoFile) => VideoFiles.fromJson(videoFile)).toList();
   }
 
   /// [_videoPictureList] Converting dynamic list to [VideoPictures] list
   static List<VideoPictures> _videoPictureList(List<dynamic>? vP) {
+    /// Return [VideoPictures] in List format
     return vP!
         .map((videoPictures) => VideoPictures.fromJson(videoPictures))
         .toList();

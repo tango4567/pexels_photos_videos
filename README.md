@@ -16,7 +16,7 @@ Use of this package is very easy. Inculde in your project pass your auth key and
 
 ## Usage
 
-Example is added. It will to `/example` folder.
+Example is added. It's available  to `/example` folder.
 
 ```dart
   PexelsMedia pexelsMedia =

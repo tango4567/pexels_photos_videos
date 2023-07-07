@@ -1,8 +1,12 @@
 # Logs
 
+## 0.0.15
+   1. Added Previous Page in curated data
+   2. Documentation Updated
+
 ## 0.0.14
    1. Added get curated photos
-   2. Documentation updated for photo and video. For more visit [Documentation](https://pub.dev/documentation/pexels_photos_videos/latest/)
+   2. Documentation updated for photo and video. For more visit [Documentation](https://pub.dev/documentation/pexels_photos_videos/0.0.14/)
 
 ## 0.0.13
 

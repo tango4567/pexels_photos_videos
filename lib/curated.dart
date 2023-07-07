@@ -15,6 +15,9 @@ class Curated {
   /// URL for the next page of results, if applicable.
   String? nextPage;
 
+  /// URL for the previous page of results, if applicable
+  String? prevPage;
+
   /// An array of Photo objects.
   List<Photo>? photos;
 
@@ -24,7 +27,8 @@ class Curated {
       required this.perPage,
       required this.totalResult,
       required this.photos,
-      required this.nextPage});
+      required this.nextPage,
+      required this.prevPage});
 
   /// [Curated.fromJson] Mapping object to [Curated]
   factory Curated.fromJson(Map<String, dynamic> json) {
@@ -33,12 +37,14 @@ class Curated {
         page: json['page'] as int?,
         perPage: json['per_page'] as int?,
         totalResult: json['total_result'] as int?,
-        photos: _photoList(json['photos'] as List<dynamic>?),
-        nextPage: json['next_page'] as String?);
+        nextPage: json['next_page'] as String?,
+        prevPage: json['prev_page'] as String?,
+        photos: _photoList(json['photos'] as List<dynamic>?));
   }
 
   /// [_photoList] Converting dynamic list to [Photo] list
   static List<Photo> _photoList(List<dynamic>? vF) {
+    /// Return [Photo] in list format
     return vF!.map((photo) => Photo.fromJson(photo)).toList();
   }
 }
