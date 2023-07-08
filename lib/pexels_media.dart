@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:pexels_photos_videos/curated.dart';
 import 'package:pexels_photos_videos/search_photo.dart';
+import 'package:pexels_photos_videos/search_video.dart';
 import 'package:pexels_photos_videos/video.dart';
 
 import 'photo.dart';
@@ -31,6 +32,9 @@ class PexelsMedia {
 
   /// [_pexelsPhotoSearch] Curated Photo Api sub folder
   static const String _pexelsPhotoSearch = '/v1/search';
+
+  /// [_pexelsVideoSearch] Curated Video Api sub folder
+  static const String _pexelsVideoSearch = '/videos/search';
 
   /// [_pexelsPhoto] Pexels Api sub folder to get photos
   static const String _pexelsVideo = 'videos/videos';
@@ -127,7 +131,7 @@ class PexelsMedia {
     return Curated.fromJson(packageJson);
   }
 
-  /// [getSearchPhotos] required to parameters
+  /// [searchPhotos] required to parameters
   /// This endpoint enables you to search Pexels for any topic that you would like.
   /// For example your [query] could be something broad like Nature, Tigers, People.
   /// Or it could be something specific like Group of people working.
@@ -135,9 +139,9 @@ class PexelsMedia {
 
       /// The search [query]. Ocean, Tigers, Pears, etc.
       String query,
-
+      [
       /// The page number you are requesting. Default: 1
-      [int? page,
+      int? page,
 
       /// The number of results you are requesting per page. Default: 15 Max: 80
       int? perPage,
@@ -191,10 +195,75 @@ class PexelsMedia {
       throw Exception('Exception ${response.statusCode}');
     }
 
+    /// Here we are converting [response] data to [Photo]
+    final packageJson = json.decode(response.body) as Map<String, dynamic>;
+
+    /// Return response in form of [Photo]
+    return SearchPhoto.fromJson(packageJson);
+  }
+
+  /// [searchVideos] required to parameters
+  /// This endpoint enables you to search Pexels for any topic that you would like.
+  /// For example your [query] could be something broad like Nature, Tigers, People.
+  /// Or it could be something specific like Group of people working.
+  Future<SearchVideo> searchVideos(
+
+      /// The search [query]. Ocean, Tigers, Pears, etc.
+      String query,
+      [
+      /// The page number you are requesting. Default: 1
+      int? page,
+
+      /// The number of results you are requesting per page. Default: 15 Max: 80
+      int? perPage,
+
+      /// Desired photo [orientation].
+      /// The current supported orientations are: landscape, portrait or square.
+      String? orientation,
+
+      /// Minimum video size. The current supported sizes are:
+      /// large(4K), medium(Full HD) or small(HD).
+      String? size,
+
+      /// The locale of the search you are performing. The current supported
+      /// locales are
+      /// 'en-US' 'pt-BR' 'es-ES' 'ca-ES' 'de-DE' 'it-IT' 'fr-FR' 'sv-SE'
+      /// 'id-ID' 'pl-PL' 'ja-JP' 'zh-TW' 'zh-CN' 'ko-KR' 'th-TH' 'nl-NL'
+      /// 'hu-HU' 'vi-VN' 'cs-CZ' 'da-DK' 'fi-FI' 'uk-UA' 'el-GR' 'ro-RO'
+      /// 'nb-NO' 'sk-SK' 'tr-TR' 'ru-RU'.
+      String? local]) async {
+    /// Creating query parameters
+    Map<String, dynamic> queryParameters = {
+      'query': query,
+      'per_page': '$perPage',
+      'orientation': orientation,
+      'size': size,
+      'local': local
+    };
+
+    ///Creating Uri
+    final uri =
+        Uri.https(_pexelsApiBaseUrl, _pexelsVideoSearch, queryParameters);
+
+    /// Get [response] from Pexels.com
+    final response = await http.get(
+      uri,
+      headers: {
+        _contentType: _contentTypeDefinition,
+        _authorization: authorizationKey
+      },
+    );
+
+    /// If [response.statusCode != 200] then it will throw exception
+    if (response.statusCode != 200) {
+      /// [Exception] Return exception and response code
+      throw Exception('Exception ${response.statusCode}');
+    }
+
     /// Here we are converting [response] data to [Video]
     final packageJson = json.decode(response.body) as Map<String, dynamic>;
 
-    /// Return response in form of [Video]
-    return SearchPhoto.fromJson(packageJson);
+    /// Return response in form of [Video] list
+    return SearchVideo.fromJson(packageJson);
   }
 }

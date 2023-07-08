@@ -24,4 +24,9 @@ Example is added. It's available  to `/example` folder.
   Photo photo = await pexelsMedia.getPhoto('image Id');
   Video video = await pexelsMedia.getVideo('video Id');
   Curated curated = await pexelsMedia.getCuratedPhotos(1,1);
+  SearchPhoto searchResultPhotos = await pexelsMedia.searchPhotos("search text");
+  SearchVideo searchResultVideos = await pexelsMedia.searchVideos("search text");
 ```
+
+
+Special Thanks to [javiercbk](https://github.com/javiercbk), [NatoBoram](https://github.com/NatoBoram) and [jonathanBAugusto](https://github.com/jonathanBAugusto) for [json_to_dart](https://github.com/javiercbk/json_to_dart)
