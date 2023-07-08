@@ -27,3 +27,6 @@ Example is added. It's available  to `/example` folder.
   SearchPhoto searchResultPhotos = await pexelsMedia.searchPhotos("search text");
   SearchVideo searchResultVideos = await pexelsMedia.searchVideos("search text");
 ```
+
+
+Special Thanks to [javiercbk](https://github.com/javiercbk), [NatoBoram](https://github.com/NatoBoram) and [jonathanBAugusto](https://github.com/jonathanBAugusto) for [json_to_dart](https://github.com/javiercbk/json_to_dart)
