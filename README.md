@@ -24,4 +24,6 @@ Example is added. It's available  to `/example` folder.
   Photo photo = await pexelsMedia.getPhoto('image Id');
   Video video = await pexelsMedia.getVideo('video Id');
   Curated curated = await pexelsMedia.getCuratedPhotos(1,1);
+  SearchPhoto searchResultPhotos = await pexelsMedia.searchPhotos("search text");
+  SearchVideo searchResultVideos = await pexelsMedia.searchVideos("search text");
 ```

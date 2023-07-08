@@ -1,8 +1,12 @@
 # Logs
 
+## 0.0.17
+   1. Added Search Video
+   2. Documentation Updated
+
 ## 0.0.16
    1. Added Search Photo
-   2. Documentation Updated
+   2. Documentation [available here.](https://pub.dev/documentation/pexels_photos_videos/0.0.16/)
 
 ## 0.0.15
    1. Added Previous Page in curated data
