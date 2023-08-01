@@ -2,11 +2,14 @@ library pexels_photos_videos;
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:pexels_photos_videos/collection_result.dart';
 import 'package:pexels_photos_videos/curated.dart';
+import 'package:pexels_photos_videos/popular_videos.dart';
 import 'package:pexels_photos_videos/search_photo.dart';
 import 'package:pexels_photos_videos/search_video.dart';
 import 'package:pexels_photos_videos/video.dart';
 
+import 'collection_details.dart';
 import 'photo.dart';
 
 /// [PexelsMedia] is having multiple methods
@@ -36,8 +39,17 @@ class PexelsMedia {
   /// [_pexelsVideoSearch] Curated Video Api sub folder
   static const String _pexelsVideoSearch = '/videos/search';
 
+  /// [_pexelsPopularVideo] Popular Video Api sub folder
+  static const String _pexelsPopularVideo = '/videos/popular';
+
   /// [_pexelsPhoto] Pexels Api sub folder to get photos
   static const String _pexelsVideo = 'videos/videos';
+
+  /// [_pexelsCollections] Pexels Api sub folder to get photos
+  static const String _pexelsCollections = 'v1/collections';
+
+  /// [_pexelsFeaturedCollections] Pexels Api sub folder to get photos
+  static const String _pexelsFeaturedCollections = 'v1/collections/featured';
 
   /// [authorizationKey] We are going to use this multiple place
   String authorizationKey;
@@ -169,6 +181,7 @@ class PexelsMedia {
     /// Creating query parameters
     Map<String, dynamic> queryParameters = {
       'query': query,
+      'page': '$page',
       'per_page': '$perPage',
       'orientation': orientation,
       'size': size,
@@ -235,6 +248,7 @@ class PexelsMedia {
     /// Creating query parameters
     Map<String, dynamic> queryParameters = {
       'query': query,
+      'page': '$page',
       'per_page': '$perPage',
       'orientation': orientation,
       'size': size,
@@ -266,4 +280,196 @@ class PexelsMedia {
     /// Return response in form of [Video] list
     return SearchVideo.fromJson(packageJson);
   }
+
+  /// This [searchPopularVideos] enables you to search Pexels for any topic that you would like.
+  /// For example your query could be something broad like Nature, Tigers, People.
+  /// Or it could be something specific like Group of people working.
+  Future<PopularVideo> searchPopularVideos(
+
+      /// The search [query]. Ocean, Tigers, Pears, etc.
+      String query,
+      [
+      /// The page number you are requesting. Default: 1
+      int? page,
+
+      /// The number of results you are requesting per page. Default: 15 Max: 80
+      int? perPage,
+
+      /// Desired photo [orientation].
+      /// The current supported orientations are: landscape, portrait or square.
+      String? orientation,
+
+      /// Minimum video size. The current supported sizes are:
+      /// large(4K), medium(Full HD) or small(HD).
+      String? size,
+
+      /// The locale of the search you are performing. The current supported
+      /// locales are
+      /// 'en-US' 'pt-BR' 'es-ES' 'ca-ES' 'de-DE' 'it-IT' 'fr-FR' 'sv-SE'
+      /// 'id-ID' 'pl-PL' 'ja-JP' 'zh-TW' 'zh-CN' 'ko-KR' 'th-TH' 'nl-NL'
+      /// 'hu-HU' 'vi-VN' 'cs-CZ' 'da-DK' 'fi-FI' 'uk-UA' 'el-GR' 'ro-RO'
+      /// 'nb-NO' 'sk-SK' 'tr-TR' 'ru-RU'.
+      String? local]) async {
+    /// Creating query parameters
+    Map<String, dynamic> queryParameters = {
+      'query': query,
+      'page': '$page',
+      'per_page': '$perPage',
+      'orientation': orientation,
+      'size': size,
+      'local': local
+    };
+
+    ///Creating Uri
+    final uri =
+        Uri.https(_pexelsApiBaseUrl, _pexelsPopularVideo, queryParameters);
+
+    /// Get [response] from Pexels.com
+    final response = await http.get(
+      uri,
+      headers: {
+        _contentType: _contentTypeDefinition,
+        _authorization: authorizationKey
+      },
+    );
+
+    /// If [response.statusCode != 200] then it will throw exception
+    if (response.statusCode != 200) {
+      /// [Exception] Return exception and response code
+      throw Exception('Exception ${response.statusCode}');
+    }
+
+    /// Here we are converting [response] data to [Video]
+    final packageJson = json.decode(response.body) as Map<String, dynamic>;
+
+    /// Return response in form of [Video] list
+    return PopularVideo.fromJson(packageJson);
+  }
+
+  /// This [myCollections] returns all of your collections.
+  Future<CollectionResult> myCollections(
+      [
+      /// The page number you are requesting. Default: 1
+      int? page,
+
+      /// The number of results you are requesting per page. Default: 15 Max: 80
+      int? perPage]) async {
+    /// Creating query parameters
+    Map<String, dynamic> queryParameters = {
+      'page': '$page',
+      'per_page': '$perPage',
+    };
+
+    ///Creating Uri
+    final uri =
+        Uri.https(_pexelsApiBaseUrl, _pexelsCollections, queryParameters);
+
+    /// Get [response] from Pexels.com
+    final response = await http.get(
+      uri,
+      headers: {
+        _contentType: _contentTypeDefinition,
+        _authorization: authorizationKey
+      },
+    );
+
+    /// If [response.statusCode != 200] then it will throw exception
+    if (response.statusCode != 200) {
+      /// [Exception] Return exception and response code
+      throw Exception('Exception ${response.statusCode}');
+    }
+
+    /// Here we are converting [response] data to [Video]
+    final packageJson = json.decode(response.body) as Map<String, dynamic>;
+
+    /// Return response in form of [Video] list
+    return CollectionResult.fromJson(packageJson);
+  }
+
+  ///This [featuredCollections] returns all featured collections on Pexels.
+  Future<CollectionResult> featuredCollections(
+      [
+      /// The page number you are requesting. Default: 1
+      int? page,
+
+      /// The number of results you are requesting per page. Default: 15 Max: 80
+      int? perPage]) async {
+    /// Creating query parameters
+    Map<String, dynamic> queryParameters = {
+      'page': '$page',
+      'per_page': '$perPage',
+    };
+
+    ///Creating Uri
+    final uri = Uri.https(
+        _pexelsApiBaseUrl, _pexelsFeaturedCollections, queryParameters);
+
+    /// Get [response] from Pexels.com
+    final response = await http.get(
+      uri,
+      headers: {
+        _contentType: _contentTypeDefinition,
+        _authorization: authorizationKey
+      },
+    );
+
+    /// If [response.statusCode != 200] then it will throw exception
+    if (response.statusCode != 200) {
+      /// [Exception] Return exception and response code
+      throw Exception('Exception ${response.statusCode}');
+    }
+
+    /// Here we are converting [response] data to [Video]
+    final packageJson = json.decode(response.body) as Map<String, dynamic>;
+
+    /// Return response in form of [Video] list
+    return CollectionResult.fromJson(packageJson);
+  }
+
+  /// This endpoint returns all the media (photos and videos) within a single collection.
+  /// You can filter to only receive photos or videos using the type parameter.
+
+  ///This [collectionsDetails] returns all featured collections on Pexels.
+  Future<CollectionDetails> collectionsDetails(
+      String id,
+      [
+      /// The page number you are requesting. Default: 1
+      int? page,
+
+      /// The number of results you are requesting per page. Default: 15 Max: 80
+      int? perPage]) async {
+    /// Creating query parameters
+    // Map<String, dynamic> queryParameters = {
+    //   'page': '$page',
+    //   'per_page': '$perPage',
+    // };
+
+    ///Creating Uri
+    final uri = Uri.https(
+        _pexelsApiBaseUrl, '$_pexelsCollections/$id'/**, queryParameters*/);
+
+    /// Get [response] from Pexels.com
+    final response = await http.get(
+      uri,
+      headers: {
+        _contentType: _contentTypeDefinition,
+        _authorization: authorizationKey
+      },
+    );
+
+    /// If [response.statusCode != 200] then it will throw exception
+    if (response.statusCode != 200) {
+      /// [Exception] Return exception and response code
+      throw Exception('Exception ${response.statusCode}');
+    }
+
+    /// Here we are converting [response] data to [Video]
+    final packageJson = json.decode(response.body) as Map<String, dynamic>;
+
+    /// Return response in form of [Video] list
+    return CollectionDetails.fromJson(packageJson);
+  }
+
+  /// This endpoint returns all the media (photos and videos) within a single collection.
+  /// You can filter to only receive photos or videos using the type parameter.
 }

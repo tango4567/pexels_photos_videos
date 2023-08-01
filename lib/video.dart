@@ -62,12 +62,12 @@ class Video {
   factory Video.fromJson(Map<String, dynamic> json) {
     /// Return [Video]
     return Video(
-        id: json['id'],
-        width: json['width'],
-        height: json['height'],
-        duration: json['duration'],
-        url: json['url'],
-        image: json['image'],
+        id: json['id'] as int?,
+        width: json['width']as int?,
+        height: json['height']as int?,
+        duration: json['duration']as int?,
+        url: json['url']as String?,
+        image: json['image']as String?,
         user: json['user'] != null ? User.fromJson(json['user']) : null,
         videoFiles: _videoFileList(json['video_files'] as List<dynamic>?),
         videoPictures:
