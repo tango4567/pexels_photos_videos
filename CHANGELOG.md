@@ -1,8 +1,16 @@
 # Logs
 
+## 0.0.19
+   1. Added Featured Collections, My Collections ans Collection Details
+   2. Documentation need to update will do soon in next update
+
+## 0.0.18
+   1. Added Search Popular Videos
+   2. Documentation updated
+
 ## 0.0.17
    1. Added Search Video
-   2. Documentation Updated
+   2. Documentation [available here.](https://pub.dev/documentation/pexels_photos_videos/0.0.17/)
 
 ## 0.0.16
    1. Added Search Photo
